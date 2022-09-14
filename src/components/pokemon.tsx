@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getApi } from '../helpers/getApi';
 
 const pokemon = ({ pokemones }: any) => {
-    const [detalles, setDetalles] = useState<any>({})
+    const [detalles, setDetalles] = useState<any>()
     const { name, url } = pokemones;
     const [image, setImage] = useState('');
     const [weight, setWeight] = useState('');
