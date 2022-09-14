@@ -5,9 +5,9 @@ import { getApi } from './helpers/getApi'
 import Pokemon from './components/pokemon'
 
 function App() {
-  const url='https://pokeapi.co/api/v2/pokemon?limit=20&offset=20'
+  const url:string='https://pokeapi.co/api/v2/pokemon?limit=20&offset=20'
 
-  const [pokemones,setPokemones]=useState([]);
+  const [pokemones,setPokemones]=useState<any[]>([]);
 
    useEffect(
       
