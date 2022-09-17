@@ -1,39 +1,17 @@
-import { useState,useEffect, useRef } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import { getApi } from './helpers/getApi'
-import Pokemon from './components/pokemon'
+import {Link} from  'react-router-dom'
+import Routing from './routing';
 
 function App() {
-  const url:string='https://pokeapi.co/api/v2/pokemon?limit=20&offset=20'
-
-  const [pokemones,setPokemones]=useState<any[]>([]);
-
-   useEffect(
-      
-     () =>{
-     
-      getApi(url,setPokemones);
-
-     
-    },[]
-);
+ 
   return (
     <div className="App">
-        <div className='container_pokemons'>
-              { 
-              pokemones.map(pokemones=>{
-                  
-                  return(
-                    <Pokemon
-                    key={pokemones.name}
-                    pokemones={pokemones}
-                    />
-                  )
-                })
-              }
-
-        </div>
+              
+       <Link to='/'>Home</Link>
+       <Link to='/Details'>Details</Link>
+        
+       <Routing/>
+      
          
        
     </div>

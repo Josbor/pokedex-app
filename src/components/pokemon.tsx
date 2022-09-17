@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { getApi } from '../helpers/getApi';
 
 const pokemon = ({ pokemones }: any) => {
@@ -39,7 +40,7 @@ const pokemon = ({ pokemones }: any) => {
 
     return (
 
-       
+        <Link to='/Details'>
             <div className='container_pokemon'>
                 <img src={image} alt="" />
                 <div className='container_info'>
@@ -49,6 +50,7 @@ const pokemon = ({ pokemones }: any) => {
             
 
         </div>
+        </Link>
     )
 }
 
