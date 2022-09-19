@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { getPokemonsContext, pokemonsContext, useGetPokemonsContext, usePokemonsContext } from '../contexts/PokemonProvider';
+import { getPokemonsContext, pokemonsContext } from '../contexts/PokemonProvider';
 import { getApi } from '../helpers/getApi';
 import { pokemones as pokemonObjecto } from '../models/pokemons';
 import Pokemon from './pokemon';

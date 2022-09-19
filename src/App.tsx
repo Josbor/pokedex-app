@@ -1,6 +1,7 @@
 import './App.css'
 import {Link} from  'react-router-dom'
 import Routing from './routing';
+import { PokemonProvider } from './contexts/PokemonProvider';
 
 function App() {
  
@@ -9,8 +10,10 @@ function App() {
               
        <Link to='/'>Home</Link>
        <Link to='/Details'>Details</Link>
-        
-       <Routing/>
+        <PokemonProvider>
+          <Routing/>
+        </PokemonProvider>
+       
       
          
        
