@@ -7,7 +7,7 @@ import { pokelist, pokemones } from "../models/pokemons";
  export const pokemonContext=React.createContext(null);
 //methods
 export const getPokemonsContext=React.createContext<any>(null);
-export const getPokemonInfoContext=React.createContext(null);
+export const getPokemonInfoContext=React.createContext<any>(null);
 
 
 // export function usePokemonsContext() {
@@ -33,7 +33,7 @@ export function PokemonProvider(props:any){
     const url:string='https://pokeapi.co/api/v2/pokemon?limit=20&offset=20';
    
     const [pokemonslist,setPokemonsList]=useState<pokelist[]>([]);
-    const [pokemon,setPokemon]=useState<any>();
+    const [pokemon,setPokemon]=useState<any>({});
     const [pokemonsObject,setPokemonsObject]=useState<pokemones[] >([])
     
     useEffect(()=>{
@@ -62,7 +62,15 @@ export function PokemonProvider(props:any){
     }
     // revisar bien el provider ,esta entrando en bucle
 
-   
+    const getPokemonInfo=async(name:string)=>{
+        if (Object.keys(pokemon).length<1){
+            const url=`https://pokeapi.co/api/v2/pokemon/${name}`
+            const res=await fetch(url);
+            const data=await res.json();
+            setPokemon(await data)
+            
+        }
+    }
     
 
     const getAllPokemons= ()=>{
@@ -74,7 +82,7 @@ export function PokemonProvider(props:any){
         <pokemonsContext.Provider value={pokemonsObject}>
             <pokemonContext.Provider value={pokemon}>
                 <getPokemonsContext.Provider value={getAllPokemons}>
-                    <getPokemonInfoContext.Provider value={null}>
+                    <getPokemonInfoContext.Provider value={getPokemonInfo}>
                         {props.children}
                     </getPokemonInfoContext.Provider>
                 </getPokemonsContext.Provider>

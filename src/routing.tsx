@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import Details from './components/details'
+import PokemonInfo from './components/PokemonInfo'
 import Pokemon from './components/pokemon'
 import Pokemones from './components/pokemones'
 
@@ -8,7 +8,7 @@ const routing = () => {
  
        <Routes>
           <Route path='/' element={<Pokemones/>}/>
-          <Route path='/Details' element={<Details/>}/>
+          <Route path='/PokemonInfo/:name' element={<PokemonInfo/>}/>
 
 
        </Routes>
