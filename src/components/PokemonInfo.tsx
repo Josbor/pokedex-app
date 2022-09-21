@@ -4,16 +4,23 @@ import { getPokemonInfoContext, pokemonContext } from '../contexts/PokemonProvid
 
 const PokemonInfo = () => {
   const location=useLocation() 
-  console.log("🚀 ~ file: PokemonInfo.tsx ~ line 7 ~ PokemonInfo ~ pokemones", location.state.pokemones)
+  const pokemones=location.state
+  console.log("🚀 ~ file: PokemonInfo.tsx ~ line 7 ~ PokemonInfo ~ pokemones", location.state)
 
   
   const getpokeInfo=useContext(getPokemonInfoContext)
   const pokeInfo=useContext(pokemonContext)
   getpokeInfo(name);
   return (
-    <div>
-      <h1>Hola mundo</h1>
-    </div>
+    <div className='container_pokemon' >
+                <img src={pokemones.image} alt="" />
+                <div className='container_info'>
+                    <h2>{pokemones.name}</h2>
+                    
+                </div>
+            
+
+        </div>
   )
 }
 
