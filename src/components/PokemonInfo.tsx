@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-import { getPokemonInfoContext, pokemonContext } from '../contexts/PokemonProvider'
 import useEffect from 'react';
 
 const PokemonInfo = () => {
@@ -18,9 +17,8 @@ const PokemonInfo = () => {
   console.log("🚀 ~ file: PokemonInfo.tsx ~ line 7 ~ PokemonInfo ~ pokemones", location.state)
 
   
-  const getpokeInfo=useContext(getPokemonInfoContext)
-  const pokeInfo=useContext(pokemonContext)
-  getpokeInfo(name);
+  
+
   return (
     <div className='container_pokemon' >
                 <img src={pokemones.image} alt="" />

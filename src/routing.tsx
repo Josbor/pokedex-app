@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import PokemonInfo from './components/PokemonInfo'
-import Pokemon from './components/pokemon'
+//import Pokemon from './components/pokemon'
 import Pokemones from './components/pokemones'
 
 const routing = () => {
