@@ -14,6 +14,7 @@ const PokemonInfo = () => {
     
     
   //   ,[])
+  console.log("🚀 ~ file: PokemonInfo.tsx ~ line 7 ~ PokemonInfo ~ pokemones", location.state)
 
   
   const getpokeInfo=useContext(getPokemonInfoContext)
