@@ -1,9 +1,12 @@
 import React, { useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { getPokemonInfoContext, pokemonContext } from '../contexts/PokemonProvider'
 
 const PokemonInfo = () => {
-  const {name}= useParams() 
+  const location=useLocation() 
+  console.log("🚀 ~ file: PokemonInfo.tsx ~ line 7 ~ PokemonInfo ~ pokemones", location.state.pokemones)
+
+  
   const getpokeInfo=useContext(getPokemonInfoContext)
   const pokeInfo=useContext(pokemonContext)
   getpokeInfo(name);
