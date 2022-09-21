@@ -6,6 +6,7 @@ import useEffect from 'react';
 const PokemonInfo = () => {
   const location=useLocation() 
   const pokemones=location.state
+  console.log("🚀 ~ file: PokemonInfo.tsx ~ line 9 ~ PokemonInfo ~ pokemones", pokemones)
   
   // useEffect(()=>{
   //     // llamado de la api
