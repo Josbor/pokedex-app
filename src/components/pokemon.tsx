@@ -13,6 +13,7 @@ const pokemon = ({ pokemon }: any) => {
     const _submitPokemon=()=>{
         navigate(`/PokemonInfo/${pokemonInfo.name}`,{state:pokemonInfo})
     }
+    
     return (
 
         // <Link to={`/PokemonInfo/${pokemones.name}`}>
