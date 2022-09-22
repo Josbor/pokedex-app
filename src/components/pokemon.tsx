@@ -7,17 +7,15 @@ import { pokecolors } from '../data/colors';
 const pokemon = ({ pokemon }: any) => {
     ;
     const [pokemonInfo,setPokemonInfo]=useState<any>()
+    const [themeColor,setThemeColor]=useState<string>('')
     const navigate=useNavigate()
-    const style=document.documentElement.style
+    
     useEffect(()=>{
-        getPokeInfo(pokemon.url,setPokemonInfo);
+        getPokeInfo(pokemon.name,setPokemonInfo);
     },[])
-
     useEffect(()=>{
-       //if (pokemonInfo) style.setProperty('--main_type',pokecolors[`${pokemonInfo.type[0]}`])
-       if (pokemonInfo) console.log(pokecolors[`${pokemonInfo.type[0]}`])
+       if (pokemonInfo) setThemeColor(pokecolors[`${pokemonInfo.type[0]}`])
         
-        //style.setProperty('$main_type',`$${pokemonInfo.type[0]}`)
     },[pokemonInfo])
     const _submitPokemon=()=>{
         navigate(`/PokemonInfo/${pokemonInfo.name}`,{state:pokemonInfo})
@@ -26,9 +24,9 @@ const pokemon = ({ pokemon }: any) => {
     return (
 
         // <Link to={`/PokemonInfo/${pokemones.name}`}>
-            <div className='container_pokemon' onClick={_submitPokemon}>
+            <div className='container_pokemon' onClick={_submitPokemon}  >
                 <img src={pokemonInfo?.image} alt="" />
-                <div className='container_info'>
+                <div className='container_info' style={{backgroundColor:`${themeColor}`}}>
                     <h2>{pokemonInfo?.name}</h2>
                     
                 </div>

@@ -8,7 +8,8 @@ export async function getApi(url:string,estado:any):Promise<any>{
 }
 
 
-export async function getPokeInfo(url:string,estado:any):Promise<any>{
+export async function getPokeInfo(name:string,estado:any):Promise<any>{
+    const url=`https://pokeapi.co/api/v2/pokemon/${name}`
     const response =  await fetch(url);
     const data = await response.json();
      // se crea nuevo formato

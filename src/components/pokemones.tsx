@@ -5,7 +5,8 @@ import { pokemon as pokemonObjecto } from '../models/pokemons';
 import Pokemon from './pokemon';
 //import {pokemones} from '../models/pokemons'
 const pokemones = () => {
-    const url:string='https://pokeapi.co/api/v2/pokemon?limit=20&offset=20'
+    //const url:string='https://pokeapi.co/api/v2/pokemon?limit=20&offset=20'
+    const url:string='https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0.'
    // const getAllPokemons=useContext(getPokemonsContext);
     //getAllPokemons()
     //const pokemonContext=useContext<pokemonObjecto[]>(pokemonsContext)
