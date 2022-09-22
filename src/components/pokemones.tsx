@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 //import { getPokemonsContext, pokemonsContext } from '../contexts/PokemonProvider';
 import { getApi } from '../helpers/getApi';
-import { pokemones as pokemonObjecto } from '../models/pokemons';
+import { pokemon as pokemonObjecto } from '../models/pokemons';
 import Pokemon from './pokemon';
 //import {pokemones} from '../models/pokemons'
 const pokemones = () => {

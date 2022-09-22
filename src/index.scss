@@ -1,28 +1,12 @@
 :root {
 
-  
+    --main_type:#D685AD;
+    --main_hover:#af5c86;
 }
 
-$normal: #A8A77A;
-$grass: #7AC74C;
-$water: #6390F0;
-$fire: #EE8130;
-$flying: #A98FF3;
-$bug: #A6B91A;
-$electric: #F7D02C;
-$poison: #A33EA1;
-$fighting: #C22E28;
-$ground: #E2BF65;
-$rock:  #B6A136;
-$ghost: #735797;
-$ice: #96D9D6;
-$psychic: #F95587;
-$dragon: #6F35FC;
-$steel: #B7B7CE;
-$dark: #705746;
-$fairy: #D685AD; 
 
-$main_type:$normal;
+
+
 
 .App {
     max-width: 1200px;
@@ -49,7 +33,7 @@ $main_type:$normal;
 
     &:hover {
         .container_info {
-            background-color: #2b9f84 !important;
+           background-color: var(--main_hover);
         }
     }
 
@@ -72,7 +56,7 @@ $main_type:$normal;
         min-width: 5rem;
         width: 15rem;
         height: 10rem;
-        background-color:$main_type;
+        background-color: var(--main_type) ;
         border-radius: 20px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: #fff;
@@ -85,7 +69,7 @@ $main_type:$normal;
         }
 
         &:hover {
-            background-color: #2b9f84;
+            background-color: var(--main_hover);
 
         }
 
