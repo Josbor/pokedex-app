@@ -1,17 +1,16 @@
 :root {
-
+    background-color:#2c2d32 ;
     --main_type:#D685AD;
     --main_hover:#af5c86;
 }
 
 
-
-
-
-.App {
+.main_container{
     max-width: 1200px;
     margin: 0 auto;
 }
+
+
 
 .container_pokemons {
     //width: 1200px;
