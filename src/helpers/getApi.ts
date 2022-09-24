@@ -1,4 +1,4 @@
-import { pokemon } from "../models/pokemons";
+import { pokemon } from "../models/pokemons.model";
 
 export async function getApi(url:string,estado:any):Promise<any>{
     const response =  await fetch(url);
