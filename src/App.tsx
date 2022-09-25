@@ -6,7 +6,7 @@ import ResponsiveAppBar from './components/navbar/appbar';
 
 
 function App() {
- 
+      
   return (
     <div >
       

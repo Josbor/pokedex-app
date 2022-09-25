@@ -12,7 +12,8 @@ const pokemon = ({ pokemon }: any) => {
     const navigate=useNavigate()
     
     useEffect(()=>{
-        getPokeInfo(pokemon.name,setPokemonInfo);
+        if (pokemon.image)setPokemonInfo(pokemon);
+        else getPokeInfo(pokemon.name,setPokemonInfo);
     },[])
     useEffect(()=>{
        if (pokemonInfo) {

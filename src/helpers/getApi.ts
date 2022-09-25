@@ -14,6 +14,7 @@ export async function getPokeInfo(name:string,estado:any):Promise<any>{
     const data = await response.json();
      // se crea nuevo formato
      const format:any= await sortPokeInfo(data);
+     storage(format);
      estado(format);
 }
 
@@ -30,5 +31,20 @@ function sortPokeInfo(data:any){
         moves:data.moves.map((moves:any)=>(moves.move.name)),
        type: data.types.map((type: any)=>(type.type.name))
     };
+
+}
+
+function storage(data:any){
+    if (localStorage.getItem('pokemones')){
+        const pokemones:any[]=JSON.parse(localStorage.getItem('pokemones')||"")
+        
+        if(pokemones.length>0){
+            const newPokeArray=[...pokemones,data]
+            localStorage.setItem('pokemones',JSON.stringify(newPokeArray))
+        }
+    }else{
+        localStorage.setItem('pokemones',JSON.stringify([data]))
+    }
+    
 
 }

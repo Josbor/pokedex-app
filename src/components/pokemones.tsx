@@ -10,7 +10,16 @@ const pokemones = () => {
     const [PokemonsObject,setpokemonObject]=useState<any[]|null>()
 
     useEffect(()=>{
-      getApi(url,setpokemonObject);
+      
+        if (localStorage.getItem('pokemones')){
+          const pokemones:any[]=JSON.parse(localStorage.getItem('pokemones')||"")
+          const pokemonesFilter= pokemones.sort((a,b)=>a.id-b.id)
+          console.log(pokemonesFilter)
+          setpokemonObject(pokemonesFilter);
+      }else{
+        getApi(url,setpokemonObject);
+      }
+      
 
     },[])
     
