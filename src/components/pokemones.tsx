@@ -10,14 +10,14 @@ const pokemones = () => {
 
     useEffect(()=>{
       
-        if (localStorage.getItem('pokemones')){
-          const pokemones:any[]=JSON.parse(localStorage.getItem('pokemones')||"")
-          const pokemonesFilter= pokemones.sort((a,b)=>a.id-b.id)
-          console.log(pokemonesFilter)
-          setpokemonObject(pokemonesFilter);
-      }else{
+      //   if (localStorage.getItem('pokemones')){
+      //     const pokemones:any[]=JSON.parse(localStorage.getItem('pokemones')||"")
+      //     const pokemonesFilter= pokemones.sort((a,b)=>a.id-b.id)
+      //     console.log(pokemonesFilter)
+      //     setpokemonObject(pokemonesFilter);
+      // }else{
         getApi().then(e=>setpokemonObject(e));
-      }
+      
       
 
     },[])
