@@ -25,7 +25,7 @@ const pokemones = () => {
     return (
     <div>
         <div className='container_pokemons'>
-                      {/* { 
+                      { 
                       PokemonsObject?
               PokemonsObject?.map(pokemon=>{
                   
@@ -37,8 +37,8 @@ const pokemones = () => {
                   )
                 }):
                 <Loader/>
-              } */}
-              <Loader/>
+              }
+              {/* <Loader/> */}
 
         </div>
     </div>
