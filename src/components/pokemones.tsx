@@ -2,11 +2,10 @@ import { CircularProgress } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react'
 import { getApi } from '../helpers/getApi';
 import { pokemon as pokemonObjecto } from '../models/pokemons.model';
+import Loader from './loader/loader';
 import Pokemon from './pokemon/pokemon';
 
 const pokemones = () => {
-    //const url:string='https://pokeapi.co/api/v2/pokemon?limit=20&offset=20'
-    const url:string='https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0.'
     const [PokemonsObject,setpokemonObject]=useState<any[]|null>()
 
     useEffect(()=>{
@@ -17,7 +16,7 @@ const pokemones = () => {
           console.log(pokemonesFilter)
           setpokemonObject(pokemonesFilter);
       }else{
-        getApi(url,setpokemonObject);
+        getApi().then(e=>setpokemonObject(e));
       }
       
 
@@ -26,7 +25,7 @@ const pokemones = () => {
     return (
     <div>
         <div className='container_pokemons'>
-                      { 
+                      {/* { 
                       PokemonsObject?
               PokemonsObject?.map(pokemon=>{
                   
@@ -37,8 +36,9 @@ const pokemones = () => {
                     />
                   )
                 }):
-                <CircularProgress />
-              }
+                <Loader/>
+              } */}
+              <Loader/>
 
         </div>
     </div>
