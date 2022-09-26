@@ -11,7 +11,7 @@ const Loader = () => {
         const handleClose = () => {
           setOpen(false);
         };
-        debugger;
+        
         return (
           
             <Dialog
