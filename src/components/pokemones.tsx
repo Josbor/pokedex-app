@@ -38,7 +38,7 @@ const pokemones = () => {
                 }):
                 <Loader/>
               }
-              {/* <Loader/> */}
+             
 
         </div>
     </div>

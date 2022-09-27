@@ -1,3 +1,27 @@
 .MuiDialog-paper{
-    background-color: none !important;
+    background-color: transparent !important ;
+    box-shadow: none;
+    color: none ;
+}
+.loader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+    img{position: relative;
+        z-index: 1;
+        top: 50px;
+        right: 10px;
+        width: 10rem;
+    }
+    h2{
+        font-family: sans-serif;
+        color: #fff;
+    }
+
+    @media screen and (max-width: 500px){
+        position: relative;
+        bottom: 50px;
+        left: 5px;
+    }
 }

@@ -1,6 +1,6 @@
 import { CircularProgress, Dialog, DialogContent } from '@mui/material';
 import React from 'react'
-import Loading from '../../img/loading.gif'
+import Loading from '../../img/loading2.gif'
 import './loader.component.scss'
 
 const Loader = () => {
@@ -8,24 +8,19 @@ const Loader = () => {
         const [open, setOpen] = React.useState(true);
       
         
-        const handleClose = () => {
-          setOpen(false);
-        };
-        
+       
         return (
           
             <Dialog
               open={open}
-              onClose={handleClose}
-                style={{backgroundColor:'none!important'}}
-                
+              PaperProps={{elevation:0,color:'none',variant:'elevation'}}
             >
-             <DialogContent style={{backgroundColor:'none!important'}}>
-             <img src={Loading}  />
+             <DialogContent className='container_loader'>
+              <div className='loader'>
+              <img src={Loading}  />
               <h2>Loading...</h2>
-              
+              </div>
              </DialogContent>
-              
               
             </Dialog>
           
