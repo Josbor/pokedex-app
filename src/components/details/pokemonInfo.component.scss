@@ -1,0 +1,35 @@
+:root{
+    background-color: aqua ;
+}
+.pokemon_details{
+    .header_details{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: #fff;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-transform: capitalize;
+        font-size: 20px;
+    }
+    .image_details{
+        display: flex;
+        justify-content: center;
+    }
+    img{
+        width:16rem;
+    }
+    .container_detalles{
+        min-width: 600px;
+        max-width: 600px;
+        height: 220px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 40px;
+
+    }
+}
+.container_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
