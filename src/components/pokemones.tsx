@@ -6,29 +6,23 @@ import Loader from './loader/loader';
 import Pokemon from './pokemon/pokemon';
 
 const pokemones = () => {
+  
     const datos= useQueryClient();
     const {data:pokemonList,status}=useQuery(['pokemonList'],getApi);
     console.log(datos.getQueryData(['pokemonList']))
-    
-    // useEffect(()=>{
-      
-    //   //   if (localStorage.getItem('pokemones')){
-    //   //     const pokemones:any[]=JSON.parse(localStorage.getItem('pokemones')||"")
-    //   //     const pokemonesFilter= pokemones.sort((a,b)=>a.id-b.id)
-    //   //     console.log(pokemonesFilter)
-    //   //     setpokemonObject(pokemonesFilter);
-    //   // }else{
-    //     getApi().then(e=>setpokemonObject(e));
-      
-      
+    const {body}=document;
+  
+  useEffect(()=>{
+    body.classList.remove("pokemonType");
+  },[])
 
-    // },[])
-    
+  if (status=='loading') return <Loader/>
+  
     return (
     <div>
         <div className='container_pokemons'>
                       { 
-                      pokemonList?
+                      
                       pokemonList?.map(pokemon=>{
                   
                   return(
@@ -37,8 +31,8 @@ const pokemones = () => {
                     pokemon={pokemon}
                     />
                   )
-                }):
-                <Loader/>
+                })
+                
               }
              
 

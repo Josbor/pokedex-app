@@ -49,14 +49,14 @@ const transformData= async (typeList:Result[],pokemonList:Result[])=>{
     return pokemonsList
 }
 
-export async function getPokeInfo(name:string,estado:any):Promise<any>{
-    const url=`https://pokeapi.co/api/v2/pokemon/${name}`
+export async function getPokeInfo(id:string):Promise<any>{
+    const url=`https://pokeapi.co/api/v2/pokemon/${id}`
     const response =  await fetch(url);
     const data = await response.json();
      // se crea nuevo formato
      const format:any= await sortPokeInfo(data);
      storage(format);
-     estado(format);
+     return format
 }
 
 

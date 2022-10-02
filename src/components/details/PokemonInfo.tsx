@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import useEffect from 'react';
 import './pokemonInfo.component.scss'
@@ -7,23 +7,43 @@ import { Box, Paper } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import { useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { pokecolors } from '../../data/colors';
+import { getPokeInfo } from '../../helpers/getApi';
+import Loader from '../loader/loader';
 
 
 const PokemonInfo = () => {
-  const location=useLocation() 
-  const {id,name,image,type,}:PokemonBasicInfo=location.state
+  //const [themeColor,setThemeColor]=useState<any>()
+  
+  const location=useLocation();
+   
+  const {id,name,image,type}:PokemonBasicInfo=location.state;
+  const {data:pokemonInfo,status}=useQuery(['pokemonInfo'],()=>getPokeInfo(id));
   const [tab, setTab] = React.useState('1');
-    const datos=useQueryClient();
-    console.log(datos.getQueryData(['pokemonList']))
+  
+  if (status=='loading') return <Loader/>
+  if (status=='success') console.log(pokemonInfo)
+
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue);
   }
+   const color=pokecolors[`${type[0].name}`]
+  // setThemeColor({backgroundColor:`${color}`})
+
+ const {body}=document;
+ body.classList.add("pokemonType")
+ document.documentElement.style.setProperty("--pokemonType",color)
+
+ const changeBackground=()=>{
+   body.classList.remove("pokemonType");
+
+ }
  return (
         <div className='pokemon_details' >
                <div className='header_details'>
                 <div><h1>{name}</h1></div>
-                <div><h2>#00{id}</h2></div>
+                <div><h2>#{id.length==1?`00${id}`:id.length==2?`0${id}`:id}</h2></div>
                </div>
                <div className='image_details'>
                <img src={image} alt="" />
@@ -39,7 +59,7 @@ const PokemonInfo = () => {
                             <Tab label="Item Three" value="3" />
                           </TabList>
                         </Box>
-                        <TabPanel value="1">holi</TabPanel>
+                        <TabPanel value="1"><button onClick={changeBackground}>cambiar</button></TabPanel>
                         <TabPanel value="2">Item Two</TabPanel>
                         <TabPanel value="3">Item Three</TabPanel>
                       </TabContext>
