@@ -8,6 +8,6 @@ import 'normalize.css'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
  
   <BrowserRouter> 
-  <App/>
+    <App/>  {/*  router is inside */}
   </BrowserRouter>
 )
